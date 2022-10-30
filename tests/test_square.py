@@ -1,19 +1,11 @@
-from src import Square
+from src.square import Square
 
-def test_square_positive():
-    a = Square(10)
-    b = Square(20)    
-    area = a.add_area(b)
-    assert area == (10*10) + (20*20)
-    print(area)
+class TestSquare:
 
+    def test_area(self):
+        square_a = Square(5)
+        assert square_a.area == 25, 'Не верно считается площать круга'
 
-def test_square_negative():
-    error = None
-    try:
-        a = Square(10)
-        area = a.add_area(10)
-        print(area)
-    except ValueError as ex:
-        error = ex
-    assert error is not None        
+    def test_perimeter(self):
+        square_p = Square(5)
+        assert square_p.perimeter == 20, 'Не верно считается периметр круга'

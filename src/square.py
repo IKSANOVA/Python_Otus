@@ -1,11 +1,19 @@
-# from Python_Otus.src.figure import Figure
-from .figure import Figure
+from src.figure import Figure
+
 
 class Square(Figure):
-    def __init__(self, a):
-        super(Square, self).__init__('Square')
-        self._set_p(a*4)
-        self._set_s(a*a)
+    def __init__(self, side) -> None:
+        NAME = 'square'
+        self.name = NAME
+        self.side = side
+        if not side:
+            raise ValueError ('Сторона квадрата не может быть 0')
 
-    
+    @property
+    def perimeter(self):
+        return self.side * 4
+
+    @property
+    def area(self):
+        return self.side * self.side
     

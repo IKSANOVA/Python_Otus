@@ -1,21 +1,12 @@
-from src import Rectangle
+from src.rectangle import Rectangle
 
-def test_rectangle_positive():
-    a = Rectangle(10, 20)
-    b = Rectangle(20, 10)    
-    area = a.add_area(b)
-    assert a.s == b.s
-    assert a.p == b.p
-    assert area == (10*10) + (20*20)
-    print(area)
+class TestRectangle:
+
+    def test_area(self):
+        rectangle_a = Rectangle(5, 7)
+        assert rectangle_a.area == 35, 'Не верно считается площать прямоугольника'
 
 
-def test_rectangle_negative():
-    error = None
-    try:
-        a = Rectangle(10, 20)
-        area = a.add_area(10)
-        print(area)
-    except ValueError as ex:
-        error = ex
-    assert error is not None        
+    def test_perimeter(self):
+        rectangle_p = Rectangle(5, 7)
+        assert rectangle_p.perimeter == 24, 'Не верно считается периметр прямоугольника'

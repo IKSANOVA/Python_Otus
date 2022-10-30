@@ -1,7 +1,20 @@
-from .figure import Figure
+from src.figure import Figure
+
 
 class Rectangle(Figure):
-    def __init__(self, h, l):
-        super(Rectangle, self).__init__('Rectangle')
-        self._set_p((h+l)*2)
-        self._set_s(h*l)
+    def __init__(self, s_1, s_2) -> None:
+        NAME = 'rectangle'
+        self.s_1 = s_1
+        self.s_2 = s_2
+        self.name = NAME
+        if not s_1 or not s_2:
+            raise ValueError ('Сторона прямоугольника не может быть 0') 
+
+    @property
+    def perimeter(self):
+        return (self.s_1 + self.s_2) * 2
+
+    @property
+    def area(self):        
+        return self.s_1 * self.s_2
+    

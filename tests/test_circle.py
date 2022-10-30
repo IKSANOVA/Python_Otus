@@ -1,20 +1,11 @@
-from src import Circle
+from src.circle import Circle
 
-def test_circle_positive():
-    pi = 3.14
-    a = Circle(10)
-    b = Circle(20)    
-    area = a.add_area(b)
-    assert area == (pi * a * a)
-    print(area)
+class TestCircle:
 
+    def test_area(self):
+        circle_a = Circle(5)
+        assert circle_a.area == 19.625, 'Не верно считается площать круга'
 
-def test_circle_negative():
-    error = None
-    try:
-        a = Circle(10)
-        area = a.add_area(10)
-        print(area)
-    except ValueError as ex:
-        error = ex
-    assert error is not None        
+    def test_perimeter(self):
+        circle_p = Circle(5)
+        assert circle_p.perimeter == 15.700000000000001, 'Не верно считается периметр круга'

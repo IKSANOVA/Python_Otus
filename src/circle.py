@@ -1,8 +1,19 @@
-from .figure import Figure
+from src.figure import Figure
+
 
 class Circle(Figure):
-    def __init__(self, a):
-        pi = 3.14
-        super(Circle, self).__init__('Circle')
-        self._set_p(pi * a * a)
-        self._set_s(a*a)
+    def __init__(self, d) -> None:
+        NAME = 'circle'
+        self.d = d
+        self.name = NAME
+        if not d:
+            raise ValueError ('Диаметр круга не может быть 0') 
+
+    @property
+    def perimeter(self):
+        return 3.14 * self.d
+
+    @property
+    def area(self):
+        return ((self.d * self.d) / 4) * 3.14 
+    
